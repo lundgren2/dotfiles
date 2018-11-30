@@ -1,19 +1,23 @@
 module.exports = {
   config: {
-    updateChannel: "canary",
+    updateChannel: "stable",
     fontSize: 13,
     fontFamily: 'Fira Code, Monaco, "Inconsolata for Powerline", monospace',
     cursorShape: "BLOCK",
-    padding: "10px 12px"
+    padding: "10px 12px",
+    hyperTabs: {
+      tabIconsColored: true,
+      activityColor: "salmon"
+    }
   },
 
   plugins: [
+    "hyper-chesterish",
+    "hyper-tabs-enhanced",
     "hypercwd",
     "hyper-sync-settings",
     "hyper-pane",
-    "hyper-search",
-    "hyper-chesterish",
-    "hyper-tabs-enhanced"
+    "hyper-search"
   ],
 
   // localPlugins: [],
