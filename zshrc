@@ -2,6 +2,7 @@
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/bin
+export PATH="$HOME/.yarn/bin:$PATH"
 export GOPATH=$HOME/go
 export ZSH=/Users/tobiaslundgren/.oh-my-zsh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
