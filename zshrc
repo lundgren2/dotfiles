@@ -28,4 +28,5 @@ PROMPT=$'\n''${path_string} ${return_status} %{$reset_color%}'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Add aliases
-[ -f $DOTFILES/zsh/aliases.sh ] && source $DOTFILES/zsh/aliases.sh
+ALIASES_PATH=$DOTFILES/zsh/aliases.sh
+[ -f $ALIASES_PATH ] && source $ALIASES_PATH

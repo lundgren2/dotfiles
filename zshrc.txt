@@ -1,7 +1,3 @@
  # Replace your .zshrc with those lines to load file from Dropbox
-FILE="$HOME/Dropbox/dotfiles/.zshrc"
-if [ -f $FILE ];
-then
-    source $FILE
-fi
-
+FILE="$HOME/Dropbox/dotfiles/zshrc"
+[ -f $FILE ] && source $FILE
