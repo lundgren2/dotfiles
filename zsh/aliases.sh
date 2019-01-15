@@ -1,7 +1,13 @@
 alias reloadCfg='source ~/.zshrc'
-alias zshconfig="code ~/Dropbox/dotfiles/.zshrc"
+alias zshconfig="code ~/Dropbox/dotfiles/zshrc"
 alias w++14='g++ -std=c++14 -pedantic -Wall -Wextra'
 alias w++17='g++ -std=c++17 -pedantic -Wall -Wextra'
+
+# tmux aliases
+alias ta='tmux attach'
+alias tls='tmux ls'
+alias tat='tmux attach -t'
+alias tns='tmux new-session -s'
 
 # Web development
 alias apacheEdit='sudo code /etc/apache2/httpd.conf'
@@ -14,7 +20,7 @@ alias fixWpPermissions='chmod 775 wp-content/uploads/; sudo chown -R $USER:_www 
 alias gitIgnoreUpdate='git rm -r --cached .; git add .; git commit -m ".gitignore updated"'
 
 gh () {
-  'open $(git config remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")/$1$2'
+  open $(git config remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")/$1$2
 }
 
 # Open current branch
