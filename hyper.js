@@ -1,13 +1,9 @@
 module.exports = {
   config: {
-    updateChannel: 'stable',
-    fontSize: 12,
-    fontFamily: 'Monaco, Fira Code, "Inconsolata for Powerline", monospace',
+    fontSize: 13,
+    fontFamily: 'Fira Code, "Inconsolata for Powerline", Monaco, monospace',
     cursorShape: 'BLOCK',
     padding: '10px 12px',
-    hypercwd: {
-      initialWorkingDirectory: '~',
-    },
     hyperTabs: {
       tabIconsColored: true,
       activityColor: 'salmon',
@@ -15,15 +11,13 @@ module.exports = {
   },
 
   plugins: [
-    // 'hyper-chesterish',
     'hyper-tabs-enhanced',
-    'hypercwd',
     'hyper-sync-settings',
+    'hypercwd',
     'hyper-pane',
     'hyper-search',
+    'verminal',
   ],
-
-  // localPlugins: [],
 
   keymaps: {
     'window:reload': 'cmd+alt+r',

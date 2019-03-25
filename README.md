@@ -65,6 +65,7 @@ netstat -r # show all hosts on network
 arp -a
 lsof -i :8000 # list all processes running on port
 curl -O http://www.thefilename.com/thefile/url.mp3 # download file from terminal
+sudo tmutil listlocalsnapshots / (and delete them by tmutil deletelocalsnapshots {date})
 ```
 
 # Setup Local Apache server
