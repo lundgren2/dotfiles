@@ -24,7 +24,7 @@ source $ZSH/oh-my-zsh.sh
 # Set prompt, similar to Pure by Sindre Sorhus but much faster
 local path_string="%{$fg[gray]%}%~"
 local prompt_symbol=$'\n'"▲" #▲λ
-local return_status="%(?:%{$fg[green]%}$prompt_symbol:%{$fg[red]%}$prompt_symbol)"
+local return_status="%(?:%{$fg[white]%}$prompt_symbol:%{$fg[red]%}$prompt_symbol)"
 PROMPT='${return_status} %{$reset_color%}${path_string} %{$reset_color%}'
 
 # Install fzf
@@ -54,5 +54,3 @@ function n() {
         (cd ~/notes && vi "$note")
     fi
 }
-
-alias graphql="sh scripts/generate-apollo-files.sh" alias graphqlSchema="sh scripts/update-graphql-schema.sh" alias translations="sh scripts/update-translations.sh" alias assets="swiftgen"

@@ -36,6 +36,11 @@ alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
 alias Ipo='cd ~/Sites/ipo/wp-content/themes/ipo'
 alias Higbird='cd ~/Dev/Clients/higbird'
 
+# Hedvig
+alias hedvig-graphql="sh scripts/generate-apollo-files.sh"
+alias hedvig-graphqlSchema="sh scripts/update-graphql-schema.sh"
+alias hedvig-translations="swiftTranslationsCodegen --projects '[App, IOS]' --destination 'Src/Assets/Localization/Localization.swift'" alias assets="swiftgen"
+
 # System operations
 alias updateAll='brew upgrade; brew upgrade yarn'
 alias dockFast='defaults write com.apple.dock autohide-time-modifier -float 0.35;defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock' # Makes the dock to appear faster
