@@ -1,24 +1,57 @@
 {
   "editor.tabSize": 2,
+  "editor.fontSize": 13,
+  "editor.fontFamily": "SF Mono, Dank Mono, Consolas, Monaco, Menlo",
   "editor.rulers": [80],
-  "editor.cursorBlinking": "solid",
-  "editor.cursorWidth": 4,
-  "editor.wordWrap": "on",
-  "atomKeymap.promptV3Features": true,
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.fontLigatures": true,
-  "editor.fontFamily": "Fira Code, Dank Mono, Roboto Mono, SF Mono, Menlo, 'Courier New', Monaco, monospace",
-  "editor.fontSize": 14,
   "editor.formatOnSave": true,
+  "editor.snippetSuggestions": "top",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.suggestSelection": "first",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.glyphMargin": false,
+  "editor.minimap.enabled": false,
+  "explorer.openEditors.visible": 0,
+  // Linting and formatting
   "javascript.validate.enable": false,
-  "eslint.autoFixOnSave": true,
   "emmet.triggerExpansionOnTab": true,
+  "emmet.syntaxProfiles": { "javascript": "jsx" },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
+    "babel-javascript": "javascriptreact",
     "vue-html": "html",
     "plaintext": "jade",
-    "blade": "html"
+    "blade": "html",
+    "mdx": "javascriptreact"
   },
-  "editor.renderWhitespace": "all",
-  "workbench.colorTheme": "Framer Dark"
+  "files.exclude": {
+    "USE_GITIGNORE": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.build": true
+  },
+  "files.associations": {
+    "*.md": "mdx"
+  },
+  // Sync
+  "sync.gist": "704757065be28881f3bf90bf8e5e5594",
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.syncExtensions": true,
+  "sync.removeExtensions": true,
+  "sync.forceDownload": false,
+  "sync.quietSync": false,
+  "sync.askGistName": false,
+  // Vim
+  "workbench.list.automaticKeyboardNavigation": false,
+  "amVim.smartRelativeLineNumbers": true,
+  // Turn off annoying stuffs
+  "editor.acceptSuggestionOnEnter": "smart",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "python.pythonPath": "${workspaceFolder}/.venv",
+  "python.jediEnabled": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Night Owl"
 }
