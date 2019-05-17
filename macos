@@ -92,7 +92,6 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # App specific
 defaults write co.zeit.hyper ApplePressAndHoldEnabled -bool false
 
-
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################

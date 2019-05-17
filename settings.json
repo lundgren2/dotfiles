@@ -1,6 +1,4 @@
 {
-  "editor.tabSize": 2,
-  "editor.fontSize": 13,
   "editor.fontFamily": "SF Mono, Dank Mono, Consolas, Monaco, Menlo",
   "editor.rulers": [80],
   "editor.formatOnSave": true,
@@ -14,7 +12,9 @@
   // Linting and formatting
   "javascript.validate.enable": false,
   "emmet.triggerExpansionOnTab": true,
-  "emmet.syntaxProfiles": { "javascript": "jsx" },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "babel-javascript": "javascriptreact",
@@ -35,23 +35,20 @@
   "files.associations": {
     "*.md": "mdx"
   },
-  // Sync
-  "sync.gist": "704757065be28881f3bf90bf8e5e5594",
-  "sync.autoDownload": false,
-  "sync.autoUpload": false,
-  "sync.syncExtensions": true,
-  "sync.removeExtensions": true,
-  "sync.forceDownload": false,
-  "sync.quietSync": false,
-  "sync.askGistName": false,
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
   // Vim
   "workbench.list.automaticKeyboardNavigation": false,
   "amVim.smartRelativeLineNumbers": true,
   // Turn off annoying stuffs
   "editor.acceptSuggestionOnEnter": "smart",
   "javascript.updateImportsOnFileMove.enabled": "never",
-  "python.pythonPath": "${workspaceFolder}/.venv",
-  "python.jediEnabled": false,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Night Owl"
+  "workbench.colorTheme": "Night Owl (No Italics)",
+  "workbench.statusBar.feedback.visible": false,
+  "python.jediEnabled": false,
+  "explorer.confirmDragAndDrop": false
 }
