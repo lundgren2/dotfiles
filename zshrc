@@ -37,7 +37,6 @@ ALIASES_PATH=$DOTFILES/zsh/aliases.sh
 
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
-ZSH_THEME_TERM_TITLE_IDLE="%~"
 
 # Nicer history
 export HISTSIZE=100000
