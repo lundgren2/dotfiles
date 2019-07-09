@@ -16,8 +16,26 @@ alias hostEdit='sudo code $DOTFILES/tobiaslundgren.conf'
 alias flushDNS='dscacheutil -flushcache'
 alias fixWpPermissions='chmod 775 wp-content/uploads/; sudo chown -R $USER:_www .; sudo chmod -R g+w .'
 
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# fh - search in your command history and execute selected command
+fh() {
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
 # Git
 alias gitIgnoreUpdate='git rm -r --cached .; git add .; git commit -m ".gitignore updated"'
+
+# - List all the commit authors ordered by amount of commits
+topauthor () {
+	git log --format="format:%an <%ae>" $1 | sort | uniq -c | sort -r
+}
 
 gh () {
   open $(git config remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")/$1$2
@@ -49,6 +67,7 @@ alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete" #clean up .DS_St
 alias restartTochbar='pkill "Touch Bar agent"; killall "ControlStrip";'
 
 # Better terminal
+alias cl='clear'
 cd() { builtin cd "$@"; ls -a; }            # Always list directory contents upon 'cd'
 o () { open -a "$1"; }                      # Open macOS app
 ql () { qlmanage -p "$*" >& /dev/null; }    # Opens any file in MacOS Quicklook Preview
@@ -56,6 +75,9 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # Makes new Dir and jumps inside
 trash () { command mv "$@" ~/.Trash ; }     # Moves a file to the MacOS trash
 zipf () { zip -r -X "$1".zip "$1" ; }       # Create a ZIP archive of a folder
 spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
+
+tsnode () { tsc $1 && node $1 }
+alias serve='cd dist && python2.7 -m SimpleHTTPServer 3000'
 
 alias .3='cd ../../../'                     # Go back 3 directory levels
 alias .4='cd ../../../../'                  # Go back 4 directory levels
