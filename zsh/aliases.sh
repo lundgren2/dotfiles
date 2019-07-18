@@ -10,6 +10,8 @@ alias tat='tmux attach -t'
 alias tns='tmux new-session -s'
 
 # Web development
+alias npm='pnpm'
+alias npx='pnpx'
 alias apacheEdit='sudo code /etc/apache2/httpd.conf'
 alias apacheRestart='sudo apachectl graceful'
 alias hostEdit='sudo code $DOTFILES/tobiaslundgren.conf'
