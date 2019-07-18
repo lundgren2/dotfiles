@@ -1,5 +1,6 @@
 alias reloadCfg='source ~/.zshrc'
 alias zshconfig="code ~/Dropbox/dotfiles/zshrc"
+alias editAlias='vi $DOTFILES/zsh/aliases.sh'
 alias w++14='g++ -std=c++14 -pedantic -Wall -Wextra'
 alias w++17='g++ -std=c++17 -pedantic -Wall -Wextra'
 
@@ -32,6 +33,7 @@ fh() {
 }
 
 # Git
+alias git='hub'
 alias gitIgnoreUpdate='git rm -r --cached .; git add .; git commit -m ".gitignore updated"'
 
 # - List all the commit authors ordered by amount of commits
