@@ -54,6 +54,9 @@ alias ghbf='gh tree/$(git symbolic-ref --quiet --short HEAD )/$(git rev-parse --
 # Open current directory/file in master branch
 alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
 
+# Delete all local branches except master
+alias gdab='git branch | grep -v "master" | xargs git branch -D'
+
 # Temp projects
 alias Ipo='cd ~/Sites/ipo/wp-content/themes/ipo'
 alias Higbird='cd ~/Dev/Clients/higbird'
