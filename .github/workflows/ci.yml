@@ -1,0 +1,34 @@
+name: Dotfiles Installation
+
+on:
+  push:
+  schedule:
+    - cron: "0 17 * * 4" # Every Thursday 5:00PM
+
+jobs:
+  install:
+    runs-on: macos-latest
+    steps:
+      - name: Clean up installed software
+        run: |
+          brew uninstall --ignore-dependencies --force $(brew list --formula)
+          brew uninstall --cask --force $(brew list --cask)
+          brew cleanup --prune-prefix
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
+          rm -rf "$NVM_DIR"
+
+      - name: Download and install available system updates
+        run: |
+          sudo softwareupdate -i -a
+
+      - name: Clone this repository
+        uses: actions/checkout@v2
+
+      - name: Install using Makefile
+        run: make
+
+      - name: Verify runcom setup
+        run: source $HOME/.zshrc
+
+      - name: Run tests
+        run: make test
