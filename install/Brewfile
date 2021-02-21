@@ -1,0 +1,57 @@
+# Useful command to generate Brewfile based on installed apps:
+# `brew bundle dump`
+
+tap 'homebrew/cask'
+tap 'homebrew/cask-versions'
+tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-fonts'
+tap 'neovim/neovim'
+
+brew 'autojump' # a faster way to navigate your filesystem
+brew 'bats' # Testing framework for Bash
+brew 'diff-so-fancy' # Make your diffs human readable instead of machine readable.
+brew 'fzf' # A command-line fuzzy finder
+brew 'gh' # GitHub’s official command line tool
+brew 'git' # Git
+brew 'htop' # Interactive process viewer.
+brew 'hub' # Unofficial GitHub’s command line tool
+brew 'jenv' # Manage your Java environment.
+brew 'maven' # Building and managing any Java-based project.
+brew 'neovim' # Hyperextensible Vim-based text editor.
+brew 'nvm' # Version manager for node.js.
+brew 'openssl' # Open source implementation of SSL- and TLS protocols.
+brew 'ruby' # Ruby programming language.
+brew 'starship' # Starship is the minimal, fast, and extremely customizable prompt.
+brew 'tree' # Recursive directory listing.
+brew 'underscore-cli' # CLI for JSON and Javascript.
+brew 'wget' # Retrieving files using HTTP, HTTPS, FTP and FTPS.
+brew 'zsh-autosuggestions' # Fish-like autosuggestions for zsh.
+brew 'zsh-completion' # Additional completion definitions for Zsh.
+# brew 'zsh-syntax-highlighting' # Fish shell like syntax highlighting for Zsh.
+
+# specify a directory to install
+cask_args appdir: '/Applications'
+
+cask 'alfred'
+cask 'corretto11'
+cask 'docker'
+cask 'dropbox'
+cask 'figma'
+cask 'google-chrome'
+cask 'intellij-idea'
+cask 'iterm2'
+cask 'karabiner-elements'
+cask 'lastpass'
+cask 'logitech-options'
+cask 'messenger'
+cask 'slack'
+cask 'spotify'
+cask 'font-fira-code'
+cask 'font-hack-nerd-font'
+cask 'postman'
+cask 'visual-studio-code'
+
+# Quick look plugins (https://github.com/sindresorhus/quick-look-plugins)
+brew 'qlstephen'
+brew 'quicklook-json'
+brew 'qlmarkdown'
