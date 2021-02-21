@@ -1,5 +1,8 @@
 # By: Tobias Lundgren <github.com/lundgren2/dotfiles>
 
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
 ZSH=~/.dotfiles/zsh
 
 # Load the shell dotfiles
@@ -14,5 +17,3 @@ eval "$(starship init zsh)"
 
 # Load plugins
 source $ZSH/.plugins
-
-
