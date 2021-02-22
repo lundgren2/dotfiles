@@ -1,6 +1,7 @@
+
 #!/usr/bin/env zsh
 
-if type "$1" >/dev/null 2>&1; then
+if [[ "$OSTYPE" =~ ^darwin ]]; then
   exit 0
 else
   exit 1
