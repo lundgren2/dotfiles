@@ -2,19 +2,21 @@
 
 ### By: Tobias Lundgren
 
+<img width="823" alt="lundgren2-dotfiles" src="https://user-images.githubusercontent.com/862774/108910782-a12f5280-7626-11eb-9a2d-20034485233e.png">
+
 ## Features
 
 - [Codespaces compatible](https://docs.github.com/en/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)
 - iTerm (vi mode)
 - Zsh
 - Brew
-- MacOS settings
-- MacOS Apps
+- macOS settings
+- macOS Apps
 - Neovim
 - VS Code
 - Github CLI
 - Alfred
-- Preview Markdown, json and files with Spotlight
+- Preview Markdown, json, and files with Spotlight
 
 ## Install 🛠
 
@@ -38,16 +40,14 @@ make
 
 ### Profiling
 
-Zsh provides a built-in module `zsh/zprof` that can be used to profile Zsh functions. At the beginning of `~/.zshrc`, add `zmodload zsh/zprof`. After restart the shell, run `zprof` to show a rich output on Zsh startup loading.
+Zsh provides a built-in module `zsh/zprof` that can be used to profile Zsh functions. At the beginning of `~/.zshrc`, add `zmodload zsh/zprof`. After restarting the shell, run `zprof` to show a rich output on Zsh startup loading.
 
-There is also an alias `benchmarkShell` that time the shell startup 10 times.
-
-## MacOS:
+There is also a function `benchmark_function` that time the shell startup 10 times.
 
 # Manual steps:
 
 - Authenticate Github CLI: `gh auth login`.
-- Setup Jetbrains IntelliJ licence
+- Setup Jetbrains IntelliJ license
 - Login to Logi Options account
 
 ## Credits
