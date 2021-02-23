@@ -1,4 +1,4 @@
-DOTFILES=~/.dotfiles
+DOTFILES:= $(shell pwd)
 PATH := $(DOTFILES)/bin:$(PATH)
 NVM_DIR := $(HOME)/.nvm
 
