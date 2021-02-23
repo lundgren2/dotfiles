@@ -1,98 +1,149 @@
-alias reloadCfg='source ~/.zshrc'
-alias zshconfig="code ~/Dropbox/dotfiles/zshrc"
-alias editAlias='vi $DOTFILES/zsh/aliases.sh'
-alias w++14='g++ -std=c++14 -pedantic -Wall -Wextra'
-alias w++17='g++ -std=c++17 -pedantic -Wall -Wextra'
+alias cl='clear'
 
-# tmux aliases
-alias ta='tmux attach'
-alias tls='tmux ls'
-alias tat='tmux attach -t'
-alias tns='tmux new-session -s'
+# Dotfiles
+alias dotfiles='cd $DOTFILES'
+alias editDotfiles='code $DOTFILES'
+alias editAliases='vi $DOTFILES/zsh/.aliases && zsh' # Edit aliases and reload shell
 
-# Web development
-alias npm='pnpm'
-alias npx='pnpx'
-alias apacheEdit='sudo code /etc/apache2/httpd.conf'
-alias apacheRestart='sudo apachectl graceful'
-alias hostEdit='sudo code $DOTFILES/tobiaslundgren.conf'
-alias flushDNS='dscacheutil -flushcache'
-alias fixWpPermissions='chmod 775 wp-content/uploads/; sudo chown -R $USER:_www .; sudo chmod -R g+w .'
+# Shortcuts
+alias Dev='cd ~/Dev'
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
 
-# fd - cd to selected directory
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
 
-# fh - search in your command history and execute selected command
-fh() {
-  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
-}
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
 
-# Git
-alias git='hub'
-alias gitIgnoreUpdate='git rm -r --cached .; git add .; git commit -m ".gitignore updated"'
+# General
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
 
-# - List all the commit authors ordered by amount of commits
-topauthor () {
-	git log --format="format:%an <%ae>" $1 | sort | uniq -c | sort -r
-}
+alias burk='burklee | fzf'
+alias pg="echo 'Pinging Google' && ping www.google.com"
+alias forecastSthlm="curl wttr.in/stockholm"
+alias spotifySetRegistry="npm config set registry https://artifactory.spotify.net/artifactory/api/npm/virtual-npm"
+alias spotifyUnSetRegistry="npm config set registry https://registry.npmjs.org"
 
-gh () {
-  open $(git config remote.origin.url | sed "s/git@\(.*\):\(.*\).git/https:\/\/\1\/\2/")/$1$2
-}
 
-# Open current branch
-alias ghb='gh tree/$(git symbolic-ref --quiet --short HEAD )'
+# Get week number
+alias week='date +%V'
 
-# Open current directory/file in current branch
-alias ghbf='gh tree/$(git symbolic-ref --quiet --short HEAD )/$(git rev-parse --show-prefix)'
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+	colorflag="--color"
+	export LS_COLORS='no=00:fi=00:di=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+else # macOS `ls`
+	colorflag="-G"
+	export LSCOLORS='ExGxBxDxCxEgEdxbxgxcxd'
+fi
 
-# Open current directory/file in master branch
-alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
+# List all files colorized in long format
+alias l="ls -lF ${colorflag}"
 
-# Delete all local branches except master
-alias gdab='git branch | grep -v "master" | xargs git branch -D'
+# List all files colorized in long format, excluding . and ..
+alias ll="ls -lAF ${colorflag}"
 
-# Temp projects
-alias Ipo='cd ~/Sites/ipo/wp-content/themes/ipo'
-alias Higbird='cd ~/Dev/Clients/higbird'
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
-# Hedvig
-alias hedvig-graphql="sh scripts/generate-apollo-files.sh"
-alias hedvig-graphqlSchema="sh scripts/update-graphql-schema.sh"
-alias hedvig-translations="swiftTranslationsCodegen --projects '[App, IOS]' --destination 'Src/Assets/Localization/Localization.swift'" alias assets="swiftgen"
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
+
+alias grep='grep --color=auto'
+
+alias -- -="cd -"
+
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+
+alias vi='nvim'                             # Use neovim
+alias vim="nvim"
+alias path='echo -e ${PATH//:/\\n}'         # Echo all executable paths
+alias cl='clear'                            # Clear Terminal
 
 # System operations
-alias updateAll='brew upgrade; brew upgrade yarn'
-alias dockFast='defaults write com.apple.dock autohide-time-modifier -float 0.35;defaults write com.apple.Dock autohide-delay -float 0.0; killall Dock' # Makes the dock to appear faster
-alias dockDefault='defaults delete com.apple.Dock autohide-delay;defaults delete com.apple.dock autohide-time-modifier;killall Dock' # Restore dock to default
-alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete" #clean up .DS_Store-files
-alias restartTochbar='pkill "Touch Bar agent"; killall "ControlStrip";'
+alias updateKeyboardLayout='sudo cp -r /Users/tlundgren/Library/Mobile\ Documents/com~apple~CloudDocs/Settings/Swedish\ US.bundle /Library/Keyboard\ Layouts/Swedish\ US.bundle'
 
-# Better terminal
-alias cl='clear'
-cd() { builtin cd "$@"; ls -a; }            # Always list directory contents upon 'cd'
-o () { open -a "$1"; }                      # Open macOS app
-ql () { qlmanage -p "$*" >& /dev/null; }    # Opens any file in MacOS Quicklook Preview
-mcd () { mkdir -p "$1" && cd "$1"; }        # Makes new Dir and jumps inside
-trash () { command mv "$@" ~/.Trash ; }     # Moves a file to the MacOS trash
-zipf () { zip -r -X "$1".zip "$1" ; }       # Create a ZIP archive of a folder
-spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
+# Clean up LaunchServices to remove duplicates in the “Open With” menu
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+# Recursively delete `.DS_Store` files
+alias cleanupDs="find . -type f -name '*.DS_Store' -ls -delete"
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
-tsnode () { tsc $1 && node $1 }
-alias serve='cd dist && python2.7 -m SimpleHTTPServer 3000'
+# MacOS
+alias cleanupCache="yarn cache clean && brew cleanup -s"
+alias restartTouchbar='pkill "Touch Bar agent"; killall "ControlStrip";' # Restart Touch Bar on MBP
+# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
 
-alias .3='cd ../../../'                     # Go back 3 directory levels
-alias .4='cd ../../../../'                  # Go back 4 directory levels
-alias path='echo -e ${PATH//:/\\n}'         # Echo all executable paths
-alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less' # Directory Listing
-alias qfind="find . -name "                 # Quickly search for file
+# Tmux
+alias ta='tmux attach -t'
+alias tls='tmux ls'
+alias tns='tmux new-session -s'
 
-ff () { /usr/bin/find . -name "$@" ; }      # Find file under the current directory
-ffs () { /usr/bin/find . -name "$@"'*' ; }  # Find file whose name starts with a given string
-ffe () { /usr/bin/find . -name '*'"$@" ; }
-findPid () { lsof -t -c "$@" ; }
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# Merge PDF files
+# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
+alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+
+# Network
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Show active network interfaces
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "${method}"="lwp-request -m '${method}'"
+done
+
+
+# Git
+# alias g='git'
+# alias git='hub'
+# alias gc='git clone'
+alias gss='git status -s'
+alias gl='git pull --rebase'
+alias gd='git diff'
+alias gco='git checkout'
+alias glg='g l'
+alias gfa='git fetch --all'
+alias grhh='git reset --hard'
+alias gdamb='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d' # Delete all local branches except master
+alias gdab='git branch | grep -v "master" | xargs git branch -D' # Delete all local branches except master
+alias prs='gh pulls'
+alias ghb='gh tree/$(git symbolic-ref --quiet --short HEAD )' # Open current directory/file in current branch
+alias ghbf='gh tree/$(git symbolic-ref --quiet --short HEAD )/$(git rev-parse --show-prefix)' # Open current directory/file in master branch
+alias ghf='gh tree/master/$(git rev-parse --show-prefix)'
+alias gitIgnoreUpdate='git rm -r --cached .; git add .; git commit -m ".gitignore updated"' # Open current branch
+alias pushb='git push -u origin $(git rev-parse --abbrev-ref HEAD | tail -n 1)'
+
+# GH CLI
+alias gcr='gh repo clone'
+
+# List repos
+alias jssdk='repos ~/Dev/spotify/js-sdk'
+alias iporepos='repos ~/Dev/own/ipo'
+alias ownrepos='repos ~/Dev/own'
+
+# Apps
+alias Chrome='open -a "Google Chrome.app"'
+alias Spotify='open -a "Spotify.app"'
+
+# Kubernetes
+# alias k=kubectl
+
+# System operations
+alias updateKeyboardLayout='sudo cp -r /Users/tlundgren/Library/Mobile\ Documents/com~apple~CloudDocs/Settings/US\ Swedish.bundle /Library/Keyboard\ Layouts/US\ Swedish.bundle'
