@@ -1,2 +1,2 @@
-# "quiet" login is performed (this disables the checking of mail and the printing of the last login time and message of the day).
-# https://manpages.courier-mta.org/htmlman1/login.1.html#login-1_sect1
+# "Quiet" login is performed (this disables the checking of mail and the printing of the last login time and message of the day).
+# See: https://manpages.courier-mta.org/htmlman1/login.1.html#login-1_sect1 or `man login`
