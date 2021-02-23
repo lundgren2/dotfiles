@@ -1,73 +1,72 @@
-# Setup development environment on macOS
+# Nifty Dotfiles
 
-#### By: Tobias Lundgren
+### By: Tobias Lundgren
 
-## Apps
+## Features
 
-- [Hyper](https://releases.hyper.is/download/mac) - Hackable terminal
-- [VS Code Insiders](https://go.microsoft.com/fwlink/?LinkId=723966)
-- [Spotify](https://www.spotify.com/se/download/)
-- [Dropbox](https://www.dropbox.com/downloading?src=index)
-- [SourceTree](https://downloads.atlassian.com/software/sourcetree/SourceTree_2.4c.zip?_ga=1.41813542.562858026.1482000003)
-- [Jetbrains Toolbox](https://www.jetbrains.com/toolbox/download/download-thanks.html?platform=mac)
+- [Codespaces compatible](https://docs.github.com/en/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)
+- iTerm (vi mode)
+- Zsh
+- Brew
+- MacOS settings
+- MacOS Apps
+- Neovim
+- VS Code
+- Github CLI
+- Alfred
+- Preview Markdown, json and files with Spotlight
 
-**Mac App Store:**
+## Install 🛠
 
-- Spark
-- LastPass
-- xCode
-- Magnet
-- Transmit 5
+With curl:
 
-**Homebrew**
-
-Install homebrew:
-
-```sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+cd; curl -#L https://github.com/lundgren2/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md}
 ```
 
-Install useful packages:
+Manual:
 
-```sh
-brew install git # get newer git version than macOS
-brew install node
-brew install yarn
-brew install zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting
+```
+git clone https://github.com/lundgren2/dotfiles.git
+cd dotfiles
+make
 ```
 
-**Brew casks:**
+## ZSH
 
-```sh
-# list available brew casks
-# brew search --casks
-brew cask install google-chrome
-brew cask install iterm2
-brew cask install spotify
-brew cask install insomnia # REST client
-```
+`.zshrc' is sourced in interactive shells. It should contain commands to set up aliases, functions, options, key bindings, etc.
 
-# Shortcuts
+### Profiling
 
-### macOS:
+Zsh provides a built-in module `zsh/zprof` that can be used to profile Zsh functions. At the beginning of `~/.zshrc`, add `zmodload zsh/zprof`. After restart the shell, run `zprof` to show a rich output on Zsh startup loading.
 
-http://docs.sublimetext.info/en/latest/reference/keyboard_shortcuts_osx.html
+There is also an alias `benchmarkShell` that time the shell startup 10 times.
 
-- CMD+ALT+W - Close all windows in a program
-- CMD+ALT+H - Hide all other windows / CMD+H (hide active window)
-- SHIFT+CMD+Q Logout
-- SHIFT+CMD+. show/hide hidden files in terminal
+## MacOS:
 
-### Termnial
+#### VS Code
+
+- `cmd+shift+.` List files within current folder or show outline
+
+### Terminal useful commands
 
 ```sh
 netstat -r # show all hosts on network
-arp -a
+arp -a # list devices on local network
 lsof -i :8000 # list all processes running on port
 curl -O http://www.thefilename.com/thefile/url.mp3 # download file from terminal
-sudo tmutil listlocalsnapshots / (and delete them by tmutil deletelocalsnapshots {date})
 ```
 
-# Setup Local Apache server
+# Manual steps:
 
-See [apache/setup-apache.md](https://github.com/lundgren2/dotfiles/blob/master/apache/setup-apache.md)
+- Authenticate Github CLI: `gh auth login`.
+- Setup Jetbrains IntelliJ licence
+- Login to Logi Options account
+
+## Credits
+
+https://dotfiles.github.io/
+https://github.com/thoughtbot/dotfiles
+https://github.com/mathiasbynens/dotfiles
+https://github.com/webpro/awesome-dotfiles
+https://htr3n.github.io/2018/07/faster-zsh/
