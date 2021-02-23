@@ -1,4 +1,4 @@
-# Nifty Dotfiles
+# Dotfiles
 
 ### By: Tobias Lundgren
 
@@ -44,19 +44,6 @@ There is also an alias `benchmarkShell` that time the shell startup 10 times.
 
 ## MacOS:
 
-#### VS Code
-
-- `cmd+shift+.` List files within current folder or show outline
-
-### Terminal useful commands
-
-```sh
-netstat -r # show all hosts on network
-arp -a # list devices on local network
-lsof -i :8000 # list all processes running on port
-curl -O http://www.thefilename.com/thefile/url.mp3 # download file from terminal
-```
-
 # Manual steps:
 
 - Authenticate Github CLI: `gh auth login`.
@@ -65,8 +52,8 @@ curl -O http://www.thefilename.com/thefile/url.mp3 # download file from terminal
 
 ## Credits
 
-https://dotfiles.github.io/
-https://github.com/thoughtbot/dotfiles
-https://github.com/mathiasbynens/dotfiles
-https://github.com/webpro/awesome-dotfiles
-https://htr3n.github.io/2018/07/faster-zsh/
+- https://dotfiles.github.io/
+- https://github.com/thoughtbot/dotfiles
+- https://github.com/mathiasbynens/dotfiles
+- https://github.com/webpro/awesome-dotfiles
+- https://htr3n.github.io/2018/07/faster-zsh/
