@@ -53,6 +53,6 @@ cask 'postman'
 cask 'visual-studio-code'
 
 # Quick look plugins (https://github.com/sindresorhus/quick-look-plugins)
-# brew 'qlstephen'
-# brew 'quicklook-json'
-# brew 'qlmarkdown'
+cask 'qlstephen'
+cask 'quicklook-json'
+cask 'qlmarkdown'
