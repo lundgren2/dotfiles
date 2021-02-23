@@ -1,2 +1,2 @@
 # Find ID for process
-findPid () { lsof -t -c "$@" ; }
+findpid () { lsof -t -c "$@" ; }

@@ -1,0 +1,4 @@
+# ~/.path can be used to extend `$PATH`.
+
+# Make .dotfiles/bin available
+PATH="$DOTFILES/bin:$PATH"

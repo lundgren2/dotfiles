@@ -1,0 +1,11 @@
+export DOTFILES=$HOME/.dotfiles
+
+export EDITOR=vim
+export LC_ALL="en_US.UTF-8" # Prefer US english and use UTF-8
+export LANG=en_US.UTF-8
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+# export LSCOLORS="exfxcxdxbxegedabagacad"
+
+# Better history
+export HISTSIZE=32768 # Increase history size. Allow 32³ entries.
+export SAVEHIST=$HISTSIZE
