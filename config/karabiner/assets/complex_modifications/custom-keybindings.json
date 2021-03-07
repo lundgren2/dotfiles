@@ -1,0 +1,50 @@
+{
+  "title": "Custom keybindings",
+  "rules": [
+    {
+      "description": "Post Esc if Caps is tapped, Control if held",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change cmd+ctrl+å to cmd+ctrl+[",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "å",
+            "modifiers": {
+              "mandatory": ["command"],
+              "optional": ["caps_lock", "option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "["
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
