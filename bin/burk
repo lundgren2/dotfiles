@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+host=$(burklee | fzf)
+
+[[ ! -z "${host}" ]] && exec ssh -A "${host}.spotify.net"

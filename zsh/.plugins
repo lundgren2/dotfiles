@@ -20,7 +20,7 @@ BREW_PREFIX=/usr/local # $(brew --prefix)
 # NVM
 if [ -f "$NVM_DIR/nvm.sh" ]; then
   export NVM_DIR
-  source "$NVM_DIR/nvm.sh" --no-use # --no-use postpone using nvm until you manually use it.
+  source "$NVM_DIR/nvm.sh" # --no-use # --no-use postpone using nvm until you manually use it.
 fi
 
 # hub

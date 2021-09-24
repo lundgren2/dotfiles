@@ -1,0 +1,50 @@
+[user]
+	name = Tobias Lundgren
+	email = tobias@lundgren.design
+
+[pull]
+	rebase = true
+
+[pretty]
+  colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
+
+[alias]
+  # List aliases.
+  aliases = config --get-regexp alias
+
+  # View abbreviated SHA, description, and history graph of the latest 20 commits.
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+  # View the current working tree status using the short format.
+  s = status -s
+  fa = fetch --all
+  c = clone
+  co = checkout
+  d = diff
+  # Amend the currently staged files to the latest commit.
+  amend = commit --amend --reuse-message=HEAD
+
+  # Credit an author on the latest commit.
+  credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch --all
+  remotes = remote --verbose
+
+  # Show the user email for the current repository.
+  whoami = config user.email
+
+  # Interactive rebase with the given number of latest commits.
+  reb = "!r() { git rebase -i HEAD~$1; }; r"
+
+# Clone git repos with URLs like "gh:lundgren2/dotfiles"
+[url "https://github.com/"]
+  insteadOf = "gh:"
+[core]
+	excludesfile = /Users/tlundgren/.gitignore_global
+[push]
+	default = current
+
+[includeIf "gitdir:~/Dev/spotify/"]
+    path = ~/Dev/spotify/.gitconfig

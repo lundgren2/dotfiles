@@ -16,11 +16,11 @@ filetype plugin indent on
 
 set backspace=indent,eol,start " Allow backspacing over indentation, line breaks and insertion starts
 
-if $COLORSCHEME == 'light'
-  set background=light
-else
-  set background=dark
-endif
+"if $COLORSCHEME == 'light'
+"  set background=light
+"else
+"  set background=dark
+"endif
 set laststatus=2
 set showmode " Show mode at bottom
 set showcmd  " Show incomplete commands
@@ -110,7 +110,7 @@ let g:NERDTreeMinimalUI=1 " Hide 'Press ? for help' prompt
 let g:nerdtree_sync_cursorline=1 " Enable syncing of active file to nerdtree
 
 " Configure color scheme
-colorscheme solarized
+" colorscheme solarized
 
 " Configure flowtype, which we need for YouCompleteMe to work
 let g:flow#enable = 0 " Disable showing errors, ale does this for us

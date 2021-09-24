@@ -1,0 +1,16 @@
+# ZSH completions
+# if type brew &>/dev/null; then
+#     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+#     autoload -Uz compinit
+#     compinit
+# fi
+
+# FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+# [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+# complete -F __start_kubectl
+
+# Put autoload below where you source
+# -z means use zsh (rather than ksh) style.
+autoload -Uz compinit && compinit
