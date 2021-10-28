@@ -2,7 +2,7 @@
   "title": "Custom keybindings",
   "rules": [
     {
-      "description": "Post Esc if Caps is tapped, Control if held",
+      "description": "Post Esc if Caps is tapped, Control if held!!!!",
       "manipulators": [
         {
           "type": "basic",
