@@ -1,7 +1,7 @@
+# https://starship.rs/config
+
 # Prompt order
 format = """
-$username\
-$hostname\
 $shlvl\
 $kubernetes\
 $git_branch\
@@ -11,64 +11,80 @@ $git_status\
 $hg_branch\
 $docker_context\
 $cmake\
+$nodejs\
 $dart\
 $dotnet\
 $golang\
 $java\
 $kotlin\
-$nodejs\
 $perl\
 $php\
 $python\
 $ruby\
 $rust\
 $swift\
+$package\
 $memory_usage\
 $env_var\
 $time\
-$package\
+
 
 $line_break\
+$username\
+$hostname\
 $character\
 $directory\
+[\\$ ](white)
 $status"""
 
 # Don't print a new line at the start of the prompt
-add_newline = false
+add_newline = true
+# right_format = """$all"""
 
 #[line_break]
 #disabled = true
 
+
 [nodejs]
 disabled = true
-
-[directory]
-style = "bold green"
-
-
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                            # The name of the module we are configuring is "character"
-success_symbol = "[➜](bold purple)"    # The "success_symbol" segment is being set to "➜" with the color "bold purple"
-error_symbol = "[➜](bold red)"
+format = "[$symbol]($style)[$version ](dimmed white)"
+style = "green"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
 format = "[$symbol$version]($style) "
+# symbol = "@"
+style= "dimmed white"
+
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[→](white)"    # The "success_symbol" segment is being set to "➜" with the color "bold purple"
+error_symbol = "[✗](#FF7C7C)"
+
+[directory]
+truncate_to_repo = false
+# truncation_symbol = "…/"
+truncation_length = 2 # only show current and parent dir
+style = "#16B174"
+
 
 [hostname]
-# disabled = true
-format = "[$hostname]($style) in "
+format = "[$hostname ]($style)"
+ssh_only = false
+style = "#E94AA9"
 
 [git_branch]
-format =  "on [$symbol$branch]($style) "
-style = "bold blue"
+format =  "[$symbol$branch]($style) "
+style = "#79c0ff"
 
 [git_status]
 ahead = "⇡${count}"
 behind = "⇣${count}"
 conflicted = "conflict"
+# disabled = true
+style = "dimmed white"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 staged.enabled = true
-staged.style = "green"
+staged.style = "#7ee787"
 staged.value = "++"
-
