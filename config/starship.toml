@@ -1,34 +1,11 @@
 # https://starship.rs/config
 
+# Don't print a new line at the start of the prompt
+add_newline = false
+
 # Prompt order
 format = """
-$shlvl\
-$kubernetes\
-$git_branch\
-$git_commit\
-$git_state\
-$git_status\
-$hg_branch\
-$docker_context\
-$cmake\
-$nodejs\
-$dart\
-$dotnet\
-$golang\
-$java\
-$kotlin\
-$perl\
-$php\
-$python\
-$ruby\
-$rust\
-$swift\
-$package\
-$memory_usage\
-$env_var\
-$time\
-
-
+$all \
 $line_break\
 $username\
 $hostname\
@@ -37,13 +14,11 @@ $directory\
 [\\$ ](white)
 $status"""
 
-# Don't print a new line at the start of the prompt
-add_newline = true
 # right_format = """$all"""
 
-#[line_break]
-#disabled = true
-
+# Don't show Google Cloud account
+[gcloud]
+disabled = true
 
 [nodejs]
 disabled = true
@@ -54,12 +29,11 @@ style = "green"
 [package]
 format = "[$symbol$version]($style) "
 # symbol = "@"
-style= "dimmed white"
-
+style= "#8193B2"
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
-success_symbol = "[→](white)"    # The "success_symbol" segment is being set to "➜" with the color "bold purple"
+success_symbol = "[➜](white)"    # The "success_symbol" segment is being set to "➜" with the color "bold purple"
 error_symbol = "[✗](#FF7C7C)"
 
 [directory]
@@ -68,22 +42,20 @@ truncate_to_repo = false
 truncation_length = 2 # only show current and parent dir
 style = "#16B174"
 
-
 [hostname]
 format = "[$hostname ]($style)"
 ssh_only = false
 style = "#E94AA9"
 
 [git_branch]
-format =  "[$symbol$branch]($style) "
-style = "#79c0ff"
+format =  "[on $symbol](#8193B2)[$branch]($style) "
+style = "white"
 
 [git_status]
 ahead = "⇡${count}"
 behind = "⇣${count}"
 conflicted = "conflict"
-# disabled = true
-style = "dimmed white"
+style = "#8193B2"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 staged.enabled = true
 staged.style = "#7ee787"
