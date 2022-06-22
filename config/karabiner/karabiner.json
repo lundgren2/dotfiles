@@ -40,7 +40,6 @@
               }
             ]
           },
-
           {
             "description": "Change cmd+shift+å to cmd+shift+[",
             "manipulators": [
@@ -48,7 +47,7 @@
                 "from": {
                   "key_code": "å",
                   "modifiers": {
-                    "mandatory": ["command", "shift"],
+                    "mandatory": ["left_command", "shift"],
                     "optional": ["caps_lock"]
                   }
                 },
@@ -106,6 +105,16 @@
               "to": [
                 {
                   "key_code": "left_command"
+                }
+              ]
+            },
+            {
+              "from": {
+                "key_code": "right_option"
+              },
+              "to": [
+                {
+                  "key_code": "right_command"
                 }
               ]
             }

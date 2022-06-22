@@ -1,9 +1,13 @@
 [user]
 	name = Tobias Lundgren
 	email = tobias@lundgren.design
+	signkey = 191E2AC4EF2A7151 # keybase
 
 [pull]
 	rebase = true
+
+[commit]
+  gpgSign = true
 
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
@@ -41,10 +45,32 @@
 # Clone git repos with URLs like "gh:lundgren2/dotfiles"
 [url "https://github.com/"]
   insteadOf = "gh:"
+
 [core]
 	excludesfile = /Users/tlundgren/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [push]
 	default = current
 
 [includeIf "gitdir:~/Dev/spotify/"]
     path = ~/Dev/spotify/.gitconfig
+
+# Git-so-fancy (https://github.com/so-fancy/diff-so-fancy)
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+

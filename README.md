@@ -20,6 +20,13 @@
 
 ## Install 🛠
 
+On a fresh install, first run:
+
+```
+sudo softwareupdate -i -a
+xcode-select --install
+```
+
 With curl:
 
 ```
@@ -28,9 +35,11 @@ cd; curl -#L https://github.com/lundgren2/dotfiles/tarball/master | tar -xzv --s
 
 Manual:
 
+Inside you home directory (`cd ~`):
+
 ```
-git clone https://github.com/lundgren2/dotfiles.git
-cd dotfiles
+git clone https://github.com/lundgren2/dotfiles.git ~/.dotfiles
+cd .dotfiles
 make
 ```
 
@@ -47,6 +56,7 @@ There is also a function `benchmark_function` that time the shell startup 10 tim
 # Manual steps:
 
 - Authenticate Github CLI: `gh auth login`.
+- Keyboard shortcuts: Change select the previous input source to: `^Space` and Select next to `Alt+Space`.
 - Setup Jetbrains IntelliJ license
 - Login to Logi Options account
 

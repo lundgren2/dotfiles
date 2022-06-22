@@ -6,6 +6,7 @@ export LANG=en_US.UTF-8
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 # export LSCOLORS="exfxcxdxbxegedabagacad"
 export NVM_DIR=~/.nvm
+export GPG_TTY=$(tty) # gpg with keybase
 
 # Better history
 export HISTSIZE=32768 # Increase history size. Allow 32³ entries.

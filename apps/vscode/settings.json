@@ -1,0 +1,100 @@
+{
+  "editor.fontFamily": "Cascadia Code PL, SF Mono, Fira Code, Roboto Mono, Consolas, Dank Mono, Monaco, monospace",
+  "terminal.integrated.fontFamily": "Hack Nerd Font Mono", // Used for Starship prompt
+  "editor.fontSize": 16,
+  "editor.tabSize": 2,
+  "editor.rulers": [80],
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.snippetSuggestions": "top",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.suggestSelection": "first",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.glyphMargin": false,
+  "editor.minimap.enabled": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Linting and formatting
+  "editor.codeActionsOnSave": ["source.fixAll.eslint"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "javascript.validate.enable": false,
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+    "typescript": "tsx"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "babel-javascript": "javascriptreact",
+    "vue-html": "html",
+    "plaintext": "jade",
+    "blade": "html",
+    "mdx": "javascriptreact"
+  },
+  "files.exclude": {
+    "USE_GITIGNORE": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.build": true
+  },
+  "files.associations": {
+    "*.sass": "scss",
+    ".*": "shellscript",
+    "*.md": "mdx"
+  },
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  // Extensions
+  "editor.bracketPairColorization.enabled": true,
+  "errorLens.followCursor": "activeLine",
+  "editor.codeLens": false,
+  "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
+
+  // Tailwind recommenadation
+  "css.validate": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html"
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.validate": true,
+
+  // Vim
+  "workbench.list.automaticKeyboardNavigation": false,
+
+  // Code pilot
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": true,
+    "markdown": false
+  },
+  // Turn off annoying stuffs
+  "editor.acceptSuggestionOnEnter": "smart",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.statusBar.feedback.visible": false,
+  "files.insertFinalNewline": true,
+  "python.jediEnabled": false,
+  "explorer.openEditors.visible": 0,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.decorations.badges": false,
+  "workbench.settings.editor": "json",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Night Owl (No Italics)"
+}

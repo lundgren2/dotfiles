@@ -1,5 +1,7 @@
 # https://starship.rs/config
 
+# "$schema": "https://raw.githubusercontent.com/starship/starship/master/config/starship.toml.schema"
+
 # Don't print a new line at the start of the prompt
 add_newline = false
 
@@ -21,13 +23,12 @@ $status"""
 disabled = true
 
 [nodejs]
-disabled = true
-format = "[$symbol]($style)[$version ](dimmed white)"
+format = "[$symbol]($style)[$version ](green)"
 style = "green"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
-format = "[$symbol$version]($style) "
+format = "[$symbol $version]($style) "
 # symbol = "@"
 style= "#8193B2"
 
@@ -57,6 +58,3 @@ behind = "⇣${count}"
 conflicted = "conflict"
 style = "#8193B2"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-staged.enabled = true
-staged.style = "#7ee787"
-staged.value = "++"
