@@ -8,6 +8,7 @@ tap 'homebrew/cask-fonts'
 tap 'neovim/neovim'
 
 brew 'autojump' # a faster way to navigate your filesystem
+brew 'bats-core' # a testing framework for Bash
 brew 'diff-so-fancy' # Make your diffs human readable instead of machine readable.
 brew 'fzf' # A command-line fuzzy finder
 brew 'gh' # GitHub’s official command line tool
