@@ -17,6 +17,6 @@ log/*.log
 rerun.txt
 tmp/**/*
 /tags
-/zsh/.custom
+/.custom
 config/karabiner/assets/automatic_backups
-config/karabiner/automatic_backups/karabiner_20211016.json
+apps/alfred

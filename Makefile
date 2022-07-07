@@ -9,7 +9,7 @@ USER := $(whoami)
 
 all: $(OS)
 
-macos: sudo core-macos packages link
+macos: sudo core-macos packages link macos-defaults
 linux: core-linux link
 
 core-macos: brew git npm
@@ -25,17 +25,16 @@ ifndef GITHUB_ACTION
 	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 endif
 
-
 packages: brew-packages node-packages
+
+macos-defaults:
+	. $(DOTFILES)/macos/macos.sh
 
 link:
 	. $(DOTFILES)/scripts/links.sh
 
 brew:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash
-	# And make sure that your user has write permission.
-	# sudo chown -R $(USER) /usr/local/share/zsh /usr/local/share/zsh/site-functions
-	chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
 
 git: brew
 	brew install git
@@ -61,3 +60,4 @@ node-packages: npm
 
 test:
 	bats test/*.bats
+
