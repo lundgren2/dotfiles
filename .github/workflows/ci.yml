@@ -28,7 +28,10 @@ jobs:
         run: make
 
       - name: Verify setup
-        run: source $HOME/.zshrc
+        run: |
+          echo $HOME
+          ls -al $HOME
+          # source $HOME/.zshrc
 
       - name: Run tests
         run: make test
