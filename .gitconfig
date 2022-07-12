@@ -33,6 +33,10 @@
 
   # Show verbose output about tags, branches or remotes
   tags = tag -l
+
+  # switch git local branches using fzf
+  sb="!switch_branch_fzf() { git branch | fzf | xargs git checkout; }; switch_branch_fzf"
+
   branches = branch --all
   remotes = remote --verbose
 
