@@ -27,8 +27,8 @@ jobs:
       - name: Install using Makefile
         run: make
 
-      - name: Verify runcom setup
-        run: source $HOME/.zshrc
+      - name: Verify setup
+        run: zsh # source $HOME/.zshrc
 
       - name: Run tests
         run: make test

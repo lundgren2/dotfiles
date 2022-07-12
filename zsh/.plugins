@@ -7,7 +7,6 @@ BREW_PREFIX=$(brew --prefix) # /opt/homebrew (M1 mac)
 [ -f $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
-
 # zsh-completion
 [ -f $BREW_PREFIX/share/zsh-completion/zsh-completion.zsh ] && source $BREW_PREFIX/share/zsh-completion/zsh-completion.zsh
 
@@ -17,8 +16,6 @@ BREW_PREFIX=$(brew --prefix) # /opt/homebrew (M1 mac)
 # zsh-syntax-highlightingh
 [ -f $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # NVM
 if [ -f "$NVM_DIR/nvm.sh" ]; then
@@ -32,3 +29,5 @@ fi
 # Google Cloud SDK
 source $BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 source $BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+
+autoload -Uz compinit && compinit

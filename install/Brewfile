@@ -8,6 +8,7 @@ tap 'homebrew/cask-fonts'
 tap 'neovim/neovim'
 
 brew 'autojump' # a faster way to navigate your filesystem
+brew 'bats-core' # a testing framework for Bash
 brew 'diff-so-fancy' # Make your diffs human readable instead of machine readable.
 brew 'fzf' # A command-line fuzzy finder
 brew 'gh' # GitHub’s official command line tool
@@ -36,12 +37,13 @@ brew 'zsh-completion' # Additional completion definitions for Zsh.
 # cask 'google-chrome'
 # cask 'lastpass' # Install from App Store
 # cask 'slack'
-cask 'spotify'
 cask 'alfred'
-cask 'corretto11'
+cask 'bankid'
+cask 'corretto11' # Amazon distribution of OpenJDK 11
 cask 'docker'
 cask 'dropbox'
 cask 'figma'
+cask 'firefox'
 cask 'font-cascadia-code-pl'
 cask 'font-fira-code'
 cask 'font-hack-nerd-font'
@@ -54,9 +56,10 @@ cask 'logitech-options'
 cask 'messenger'
 cask 'postman'
 cask 'rocket' # Type emojis faster and easier using Slack-style shortcuts.
+cask 'spotify'
+cask 'tradingview'
 cask 'ukelele'
 cask 'visual-studio-code'
-cask 'bankid'
 
 # Quick look plugins (https://github.com/sindresorhus/quick-look-plugins)
 cask 'qlstephen'
