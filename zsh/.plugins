@@ -1,33 +1,38 @@
-
 # Homebrew
-# if no premissions run: sudo chown -R $(whoami) $(brew --prefix)/*
+# If no permissions, run: sudo chown -R $(whoami) $(brew --prefix)/*
 BREW_PREFIX=$(brew --prefix) # /opt/homebrew (M1 mac)
 
 # zsh-autosuggestions
-[ -f $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+[ -f "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && . "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # zsh-completion
-[ -f $BREW_PREFIX/share/zsh-completion/zsh-completion.zsh ] && source $BREW_PREFIX/share/zsh-completion/zsh-completion.zsh
+[ -f "$BREW_PREFIX/share/zsh-completion/zsh-completion.zsh" ] && . "$BREW_PREFIX/share/zsh-completion/zsh-completion.zsh"
 
 # autojump
-[ -f $BREW_PREFIX/etc/profile.d/autojump.sh ] && . $BREW_PREFIX/etc/profile.d/autojump.sh
+[ -f "$BREW_PREFIX/etc/profile.d/autojump.sh" ] && . "$BREW_PREFIX/etc/profile.d/autojump.sh"
 
-# zsh-syntax-highlightingh
-[ -f $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+# zsh-syntax-highlighting
+[ -f "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && . "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # NVM
-if [ -f "$NVM_DIR/nvm.sh" ]; then
-  export NVM_DIR
-  source "$NVM_DIR/nvm.sh" # --no-use # --no-use postpone using nvm until you manually use it.
-fi
+# Add default node to path
+export PATH=~/.nvm/versions/node/v20.11.0/bin:$PATH
+# Load NVM
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
+# Use nvm if nvmrc exists
+chpwd() {
+  if [ -f ".nvmrc" ]; then
+    nvm use
+  fi
+}
 
-# jenv
-# eval "$(jenv init - --no-rehash)"
+# jenv (uncomment if you want to use jenv)
+# [ -x "$(command -v jenv)" ] && eval "$(jenv init - --no-rehash)"
 
 # Google Cloud SDK
-source $BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-source $BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+[ -f "$BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ] && \
+  . "$BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" && \
+  . "$BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
+# Initialize zsh's completion system
 autoload -Uz compinit && compinit

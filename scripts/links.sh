@@ -3,9 +3,9 @@ DOTFILES=$HOME/.dotfiles
 echo "Linking dotfiles..."
 
 # Link the files
-for file in {.zshrc,.gitconfig,.gitignore_global,.hushlogin,.vimrc,.tmux.conf}; do
+for file in {.zshrc,.gitconfig,.gitignore_global,.hushlogin,.vimrc,.tmux.conf,.SpaceVim.d}; do
   DEST=~/$file
-  [ ! -r "$DEST" ] && [ ! -f "$DEST" ] && ln -s $DOTFILES/$file $DEST
+  [ ! -r "$DEST" ] && [ ! -f "$DEST" ] && ln -fhs $DOTFILES/$file $DEST
 done
 unset file
 
@@ -16,6 +16,6 @@ unset file
 
 for file in {starship.toml}; do
   DEST=~/.config/$file
-  [ ! -r "$DEST" ] && [ ! -f "$DEST" ] && ln -s $DOTFILES/config/$file $DEST
+  [ ! -r "$DEST" ] && [ ! -f "$DEST" ] && ln -fhs $DOTFILES/config/$file $DEST
 done
 unset file

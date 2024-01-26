@@ -1,13 +1,14 @@
 [user]
 	name = Tobias Lundgren
-	email = tobias@lundgren.design
-	signkey = 191E2AC4EF2A7151 # keybase
+	email = tlundgren@spotify.com
+signkey = 191E2AC4EF2A7151 # keybase
+# signingkey = /Users/tlundgren/.ssh/id_rsa.pub
 
 [pull]
 	rebase = true
 
 [commit]
-  gpgSign = true
+	gpgsign = true
 
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
@@ -47,17 +48,16 @@
   reb = "!r() { git rebase -i HEAD~$1; }; r"
 
 # Clone git repos with URLs like "gh:lundgren2/dotfiles"
-[url "https://github.com/"]
+[url "git@github.com:"]
   insteadOf = "gh:"
 
 [core]
 	excludesfile = /Users/tlundgren/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = code --wait
+	precomposeunicode = false
 [push]
 	default = current
-
-[includeIf "gitdir:~/Dev/spotify/"]
-    path = ~/Dev/spotify/.gitconfig
 
 # Git-so-fancy (https://github.com/so-fancy/diff-so-fancy)
 [interactive]
@@ -77,3 +77,19 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+# [gpg]
+# 	program = /opt/homebrew/bin/gpg
+# 	format = ssh
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[includeIf "gitdir:~/Dev/own/**/.git"]
+    path = ~/Dev/own/.gitconfig
+
+# [gpg "ssh"]
+# 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
